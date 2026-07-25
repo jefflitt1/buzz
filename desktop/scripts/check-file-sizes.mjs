@@ -142,7 +142,9 @@ const overrides = new Map([
   // path, pair receipt validation/termination, receipt sweep, runtime/stop
   // module split, process_has_buzz_marker visibility, and kill_stale signature
   // migrated to ManagedAgentRuntimeKey. Integrated at merge; queued to split.
-  ["src-tauri/src/managed_agents/runtime.rs", 2272],
+  // +12 (2272 -> 2284): rebase onto main — main's #2397 shim guard in
+  // configure_runtime_cli lands under this PR's resolver changes. Queued.
+  ["src-tauri/src/managed_agents/runtime.rs", 2284],
   // config-bridge setup-payload env-boundary fix adds readiness wiring in
   // spawn_agent_child; load-bearing security fix, queued to split.
   ["src-tauri/src/managed_agents/config_bridge/reader.rs", 1016],
@@ -192,7 +194,9 @@ const overrides = new Map([
   // Windows PATH-correctness fix: 3 #[cfg(windows)] test functions covering
   // .cmd shim rejection, .bat shim rejection, and .exe acceptance for
   // configure_runtime_cli (fix #2397). Test-only growth; queued to split.
-  ["src-tauri/src/managed_agents/runtime/tests.rs", 1041],
+  // +7 (1041 -> 1048): rebase onto main — this PR's resolver tests land on top
+  // of main's #2397 Windows shim tests. Test-only; queued to split.
+  ["src-tauri/src/managed_agents/runtime/tests.rs", 1048],
   // applyWorkspace reposDir parameter plus the validateReposDir binding,
   // threaded through Tauri invokes for configurable repos_dir, plus the
   // harness-persona-sync `harnessOverride` create-input bit — load-bearing
@@ -573,7 +577,9 @@ const overrides = new Map([
   // for Databricks v1 gate; prospectiveRuntimeId default fallback for builtins.
   // PR-B moves default/API-key derivation into shared hooks; the explicit
   // hidden-key projection keeps the top-level secret out of Advanced rows.
-  ["src/features/agents/ui/AgentInstanceEditDialog.tsx", 1195],
+  // +6 (1195 -> 1201): rebase onto main — this PR's model-source label wiring
+  // lands on top of main's dialog growth. Queued to split.
+  ["src/features/agents/ui/AgentInstanceEditDialog.tsx", 1201],
   // AgentDefinitionDialog grew past 1000 with the following load-bearing fixes:
   // isRuntimeAutoSeededRef tracking for edit-mode seeding (Fizz shows models);
   // runtimeSupportsLlmProviderSelection guard on discovery provider (codex fix);
